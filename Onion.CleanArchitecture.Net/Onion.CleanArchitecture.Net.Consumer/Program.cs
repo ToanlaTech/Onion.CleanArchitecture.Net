@@ -20,7 +20,7 @@ var _env = builder.Environment;
 _services.AddEnvironmentVariablesExtension();
 _services.AddIdentityLayer();
 _services.AddApplicationLayer();
-_services.AddSqlServerIdentityInfrastructure(_config);
+_services.AddSqlServerIdentityInfrastructure(typeof(Program).Assembly.FullName);
 _services.AddIdentityRepositories(_config);
 _services.AddSqlServerPersistenceInfrastructure(typeof(Program).Assembly.FullName);
 _services.AddPersistenceRepositories();
