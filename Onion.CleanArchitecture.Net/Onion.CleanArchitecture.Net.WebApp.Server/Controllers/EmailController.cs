@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Onion.CleanArchitecture.Net.Application.Features.Emails.Commands.SendMail;
 
 namespace Onion.CleanArchitecture.Net.WebApp.Server.Controllers
 {

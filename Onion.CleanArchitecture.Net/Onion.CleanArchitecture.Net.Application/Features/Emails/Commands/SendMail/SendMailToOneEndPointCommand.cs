@@ -4,7 +4,6 @@ using AutoMapper;
 using MediatR;
 using Newtonsoft.Json;
 using Onion.CleanArchitecture.Net.Application.DTOs.Email;
-using Onion.CleanArchitecture.Net.Application.Interfaces;
 using Onion.CleanArchitecture.Net.Application.Wrappers;
 using System;
 using System.Collections.Generic;
