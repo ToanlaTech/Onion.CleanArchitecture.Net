@@ -1,0 +1,7 @@
+/.vs
+**/bin/
+**/obj/
+**/node_modules/
+/.vscode
+**/appsettings.Development.json
+Onion.CleanArchitecture.Net/Onion.CleanArchitecture.Net.WebApp.Server/wwwroot/policy.csv

@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "kscl.backend.toananhle.Worker.Employee": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

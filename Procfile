@@ -1,0 +1,1 @@
+web cd $HOME/heroku_output && ./Onion.CleanArchitecture.Net.WebApp.Server
