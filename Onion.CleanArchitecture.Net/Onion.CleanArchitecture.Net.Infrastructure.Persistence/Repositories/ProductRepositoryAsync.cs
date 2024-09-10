@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Onion.CleanArchitecture.Net.Application.Features.Products.Queries.GetAllProducts;
+using Onion.CleanArchitecture.Net.Application.Interfaces;
 using Onion.CleanArchitecture.Net.Application.Interfaces.Repositories;
 using Onion.CleanArchitecture.Net.Application.Wrappers;
 using Onion.CleanArchitecture.Net.Domain.Entities;
@@ -15,16 +16,25 @@ namespace Onion.CleanArchitecture.Net.Infrastructure.Persistence.Repositories
     public class ProductRepositoryAsync : GenericRepositoryAsync<Product>, IProductRepositoryAsync
     {
         private readonly DbSet<Product> _products;
+        protected readonly IRepository<Product> _productRepository;
 
-        public ProductRepositoryAsync(ApplicationDbContext dbContext) : base(dbContext)
+        public ProductRepositoryAsync(
+            ApplicationDbContext dbContext,
+            IRepository<Product> productRepository
+            ) : base(dbContext)
         {
             _products = dbContext.Set<Product>();
+            _productRepository = productRepository;
         }
 
-        public Task<bool> IsUniqueBarcodeAsync(string barcode)
+        public async Task<bool> IsUniqueBarcodeAsync(string barcode)
         {
-            return _products
-                .AllAsync(p => p.Barcode != barcode);
+            var query = from p in _productRepository.Table
+                        where p.Barcode == barcode
+                        select p;
+            return await query.CountAsync() == 0;
+            //return _products
+            //    .AllAsync(p => p.Barcode != barcode);
         }
 
         public async Task<int> DeleteRangeAsync(List<int> ids)

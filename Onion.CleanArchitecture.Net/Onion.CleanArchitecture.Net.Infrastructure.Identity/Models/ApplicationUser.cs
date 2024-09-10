@@ -11,11 +11,6 @@ namespace Onion.CleanArchitecture.Net.Infrastructure.Identity.Models
         public string LastName { get; set; }
         [NotMapped]
         public string RoleId { get; set; }
-        public string? TenNhanVien { get; set; }
-        public string? MaNhanVien { get; set; }
-        public string? ChucVu { get; set; }
-        public string? MaDonVi { get; set; }
-        public string? TenDonVi { get; set; }
         public List<RefreshToken> RefreshTokens { get; set; }
         public bool OwnsToken(string token)
         {

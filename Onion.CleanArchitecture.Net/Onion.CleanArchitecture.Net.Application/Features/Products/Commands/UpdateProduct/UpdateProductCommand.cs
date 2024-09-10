@@ -34,7 +34,6 @@ namespace Onion.CleanArchitecture.Net.Application.Features.Products.Commands.Upd
                     product.Name = command.Name;
                     product.Rate = command.Rate;
                     product.Description = command.Description;
-                    product.Price = command.Price;
                     await _productRepository.UpdateAsync(product);
                     return new Response<int>(product.Id);
                 }

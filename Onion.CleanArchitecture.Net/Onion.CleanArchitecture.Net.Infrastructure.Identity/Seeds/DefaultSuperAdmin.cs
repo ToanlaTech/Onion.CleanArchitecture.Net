@@ -19,7 +19,6 @@ namespace Onion.CleanArchitecture.Net.Infrastructure.Identity.Seeds
                 LastName = "Murugan",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,
-                MaNhanVien = "1"
             };
             if (userManager.Users.All(u => u.Id != defaultUser.Id))
             {

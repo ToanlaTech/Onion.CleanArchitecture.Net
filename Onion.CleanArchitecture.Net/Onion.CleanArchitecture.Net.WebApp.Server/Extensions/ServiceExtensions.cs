@@ -150,6 +150,7 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Extensions
 
         public static void ConfigureServicesExtension(this IServiceCollection services)
         {
+            services.AddMemoryCache();
             services.AddTransient(typeof(IConcurrentCollection<>), typeof(ConcurrentTrie<>));
             services.AddSingleton<ICacheKeyManager, CacheKeyManager>();
             services.AddScoped<IShortTermCacheManager, PerRequestCacheManager>();

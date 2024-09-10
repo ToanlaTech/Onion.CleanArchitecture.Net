@@ -44,7 +44,7 @@ namespace Onion.CleanArchitecture.Net.Infrastructure.Persistence.Contexts
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.HasDefaultSchema("onion");
+            builder.HasDefaultSchema("public");
             builder.Entity<ApplicationUser>().ToTable(t => t.ExcludeFromMigrations());
             //All Decimals will have 18,6 Range
             foreach (var property in builder.Model.GetEntityTypes()

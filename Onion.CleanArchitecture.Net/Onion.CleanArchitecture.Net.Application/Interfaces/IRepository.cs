@@ -334,5 +334,14 @@ namespace Onion.CleanArchitecture.Net.Application.Interfaces
         /// </returns>
         int Delete(Expression<Func<TEntity, bool>> predicate);
         #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Gets a table
+        /// </summary>
+        IQueryable<TEntity> Table { get; }
+
+        #endregion
     }
 }
