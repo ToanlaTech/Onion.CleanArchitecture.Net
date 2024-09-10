@@ -86,6 +86,7 @@ namespace Onion.CleanArchitecture.Net.Infrastructure.Persistence
         {
             #region Repositories
             services.AddTransient(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
+            services.AddScoped(typeof(IRepository<>), typeof(EntityRepository<>));
             services.AddTransient<IProductRepositoryAsync, ProductRepositoryAsync>();
             // services.AddTransient<IEmailRepositoryAsync, EmailRepositoryAsync>();
             #endregion

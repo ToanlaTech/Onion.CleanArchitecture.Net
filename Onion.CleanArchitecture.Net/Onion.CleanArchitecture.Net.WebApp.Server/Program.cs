@@ -13,6 +13,7 @@ var _env = builder.Environment;
 // Add services to the container.
 
 _services.AddEnvironmentVariablesExtension();
+_services.ConfigureServicesExtension();
 _services.AddIdentityLayer();
 _services.AddApplicationLayer();
 _services.AddNpgSqlIdentityInfrastructure(typeof(Program).Assembly.FullName);

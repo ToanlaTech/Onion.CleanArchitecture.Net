@@ -2,6 +2,8 @@
 using Microsoft.OpenApi.Models;
 using Minio;
 using Onion.CleanArchitecture.Net.Application.Consts.Rabbits;
+using Onion.CleanArchitecture.Net.Domain.Caching;
+using Onion.CleanArchitecture.Net.Domain.Infrastructure;
 using Onion.CleanArchitecture.Net.Infrastructure.Shared.Environments;
 
 namespace Onion.CleanArchitecture.Net.WebApp.Server.Extensions
@@ -101,7 +103,7 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Extensions
                 options.AddPolicy("CorsPolicy",
                    builder => builder
                    .AllowAnyMethod()
-                    .WithOrigins("https://vbportal.toananhle.com.vn")
+                    .WithOrigins("https://toananhle.com.vn")
                    .AllowAnyHeader());
 
             });
@@ -144,6 +146,17 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Extensions
                 });
             });
             //services.AddMassTransitHostedService();
+        }
+
+        public static void ConfigureServicesExtension(this IServiceCollection services)
+        {
+            services.AddTransient(typeof(IConcurrentCollection<>), typeof(ConcurrentTrie<>));
+            services.AddSingleton<ICacheKeyManager, CacheKeyManager>();
+            services.AddScoped<IShortTermCacheManager, PerRequestCacheManager>();
+
+            services.AddSingleton<ILocker, MemoryCacheLocker>();
+            services.AddSingleton<IStaticCacheManager, MemoryCacheManager>();
+            services.AddScoped<ICacheKeyService, MemoryCacheManager>();
         }
     }
 }
