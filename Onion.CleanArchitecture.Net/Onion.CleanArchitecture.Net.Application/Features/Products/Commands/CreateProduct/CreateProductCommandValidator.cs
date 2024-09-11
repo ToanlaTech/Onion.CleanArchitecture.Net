@@ -16,8 +16,7 @@ namespace Onion.CleanArchitecture.Net.Application.Features.Products.Commands.Cre
             RuleFor(p => p.Barcode)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()
-                .MaximumLength(50).WithMessage("{PropertyName} must not exceed 50 characters.")
-                .MustAsync(IsUniqueBarcode).WithMessage("{PropertyName} already exists.");
+                .MaximumLength(50).WithMessage("{PropertyName} must not exceed 50 characters.");
 
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
@@ -34,11 +33,6 @@ namespace Onion.CleanArchitecture.Net.Application.Features.Products.Commands.Cre
                 .NotNull()
                 .GreaterThan(10).WithMessage("{PropertyName} must be greater than 10.");
 
-        }
-
-        private async Task<bool> IsUniqueBarcode(string barcode, CancellationToken cancellationToken)
-        {
-            return await productRepository.IsUniqueBarcodeAsync(barcode);
         }
     }
 }

@@ -27,16 +27,6 @@ namespace Onion.CleanArchitecture.Net.Infrastructure.Persistence.Repositories
             _productRepository = productRepository;
         }
 
-        public async Task<bool> IsUniqueBarcodeAsync(string barcode)
-        {
-            var query = from p in _productRepository.Table
-                        where p.Barcode == barcode
-                        select p;
-            return await query.CountAsync() == 0;
-            //return _products
-            //    .AllAsync(p => p.Barcode != barcode);
-        }
-
         public async Task<int> DeleteRangeAsync(List<int> ids)
         {
             var products = await _products.Where(p => ids.Contains(p.Id)).ToListAsync();

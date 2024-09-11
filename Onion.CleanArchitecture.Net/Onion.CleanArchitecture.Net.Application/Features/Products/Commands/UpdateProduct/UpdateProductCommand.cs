@@ -11,8 +11,6 @@ namespace Onion.CleanArchitecture.Net.Application.Features.Products.Commands.Upd
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Rate { get; set; }
         public decimal Price { get; set; }
         public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, Response<int>>
         {
@@ -32,8 +30,6 @@ namespace Onion.CleanArchitecture.Net.Application.Features.Products.Commands.Upd
                 else
                 {
                     product.Name = command.Name;
-                    product.Rate = command.Rate;
-                    product.Description = command.Description;
                     await _productRepository.UpdateAsync(product);
                     return new Response<int>(product.Id);
                 }

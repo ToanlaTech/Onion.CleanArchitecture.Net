@@ -1,4 +1,4 @@
-namespace Onion.CleanArchitecture.Net.Application.Interfaces.Services.Catalog;
+namespace Onion.CleanArchitecture.Net.Domain.Entities.Catalog;
 
 /// <summary>
 /// Represents a product type
