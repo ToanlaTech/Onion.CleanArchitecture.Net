@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Onion.CleanArchitecture.Net.Application.Interfaces;
 using Onion.CleanArchitecture.Net.Domain.Common;
-using Onion.CleanArchitecture.Net.Domain.Entities;
+using Onion.CleanArchitecture.Net.Domain.Entities.Catalog;
 using Onion.CleanArchitecture.Net.Domain.Models;
 using System.Linq;
 using System.Threading;
@@ -21,7 +21,7 @@ namespace Onion.CleanArchitecture.Net.Infrastructure.Persistence.Contexts
             _authenticatedUser = authenticatedUser;
         }
         public DbSet<Product> Products { get; set; }
-        public DbSet<ApplicationUser> User { get; set; }
+        public DbSet<Customer> User { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
@@ -45,7 +45,7 @@ namespace Onion.CleanArchitecture.Net.Infrastructure.Persistence.Contexts
         {
             base.OnModelCreating(builder);
             builder.HasDefaultSchema("public");
-            builder.Entity<ApplicationUser>().ToTable(t => t.ExcludeFromMigrations());
+            builder.Entity<Customer>().ToTable(t => t.ExcludeFromMigrations());
             //All Decimals will have 18,6 Range
             foreach (var property in builder.Model.GetEntityTypes()
             .SelectMany(t => t.GetProperties())

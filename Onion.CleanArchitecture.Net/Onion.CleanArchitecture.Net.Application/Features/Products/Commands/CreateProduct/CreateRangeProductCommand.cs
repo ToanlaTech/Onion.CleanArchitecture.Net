@@ -2,7 +2,7 @@
 using MediatR;
 using Onion.CleanArchitecture.Net.Application.Interfaces.Repositories;
 using Onion.CleanArchitecture.Net.Application.Wrappers;
-using Onion.CleanArchitecture.Net.Domain.Entities;
+using Onion.CleanArchitecture.Net.Domain.Entities.Catalog;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;

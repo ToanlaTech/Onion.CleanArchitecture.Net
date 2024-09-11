@@ -11,8 +11,8 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     public abstract class BaseApiController : ControllerBase
     {
-        private IMediator _mediator;
-        protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
+        private IMediator? _mediator;
+        protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>() ?? throw new Exception("IMediator service is not registered.");
 
         protected readonly Enforcer _enforcer;
         protected readonly string _webRootPath;

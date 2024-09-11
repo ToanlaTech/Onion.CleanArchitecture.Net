@@ -10,6 +10,6 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Services
             UserId = httpContextAccessor.HttpContext?.User?.FindFirstValue("uid");
         }
 
-        public string UserId { get; }
+        public string? UserId { get; }
     }
 }

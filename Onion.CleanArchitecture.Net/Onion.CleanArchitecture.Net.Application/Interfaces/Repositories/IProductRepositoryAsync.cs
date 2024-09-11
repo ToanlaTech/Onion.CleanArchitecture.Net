@@ -1,6 +1,6 @@
 ﻿using Onion.CleanArchitecture.Net.Application.Features.Products.Queries.GetAllProducts;
 using Onion.CleanArchitecture.Net.Application.Wrappers;
-using Onion.CleanArchitecture.Net.Domain.Entities;
+using Onion.CleanArchitecture.Net.Domain.Entities.Catalog;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

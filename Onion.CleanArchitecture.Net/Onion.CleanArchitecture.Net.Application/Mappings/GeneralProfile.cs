@@ -3,7 +3,7 @@ using Onion.CleanArchitecture.Net.Application.DTOs.Email;
 using Onion.CleanArchitecture.Net.Application.Features.Emails.Commands.SendMail;
 using Onion.CleanArchitecture.Net.Application.Features.Products.Commands.CreateProduct;
 using Onion.CleanArchitecture.Net.Application.Features.Products.Queries.GetAllProducts;
-using Onion.CleanArchitecture.Net.Domain.Entities;
+using Onion.CleanArchitecture.Net.Domain.Entities.Catalog;
 
 namespace Onion.CleanArchitecture.Net.Application.Mappings
 {

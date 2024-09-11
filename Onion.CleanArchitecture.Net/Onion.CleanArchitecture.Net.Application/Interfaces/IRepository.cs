@@ -18,7 +18,7 @@ namespace Onion.CleanArchitecture.Net.Application.Interfaces
         /// </summary>
         /// <typeparam name="TEntity">Entity type</typeparam>
         /// <returns>Queryable source</returns>
-        IQueryable<TEntity> GetTable<TEntity>() where TEntity : AuditableBaseEntity;
+        IQueryable<T> GetTable<T>() where T : AuditableBaseEntity;
 
         /// <summary>
         /// Inserts record into table. Returns inserted entity with identity
@@ -29,7 +29,7 @@ namespace Onion.CleanArchitecture.Net.Application.Interfaces
         /// A task that represents the asynchronous operation
         /// The task result contains the inserted entity
         /// </returns>
-        Task<TEntity> InsertEntityAsync<TEntity>(TEntity entity) where TEntity : AuditableBaseEntity;
+        Task<T> InsertEntityAsync<T>(T entity) where T : AuditableBaseEntity;
 
         /// <summary>
         /// Updates record in table, using values from entity parameter.

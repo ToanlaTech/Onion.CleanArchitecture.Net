@@ -35,6 +35,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Worker", "Worker", "{B1B340
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumer", "Consumer", "{24DE246A-F530-476D-812B-BE1E805E15F8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F5F955E7-FD11-447B-A60A-BE3172378BAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onion.CleanArchitecture.Net.Tests", "Onion.CleanArchitecture.Net\Onion.CleanArchitecture.Net.Tests\Onion.CleanArchitecture.Net.Tests.csproj", "{6AC6FD38-6401-4BC1-B9D3-E45B9AC2A2E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,10 @@ Global
 		{0D3D6BCF-9FF1-42C5-B844-5F7C1D9A802E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D3D6BCF-9FF1-42C5-B844-5F7C1D9A802E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D3D6BCF-9FF1-42C5-B844-5F7C1D9A802E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AC6FD38-6401-4BC1-B9D3-E45B9AC2A2E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AC6FD38-6401-4BC1-B9D3-E45B9AC2A2E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AC6FD38-6401-4BC1-B9D3-E45B9AC2A2E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AC6FD38-6401-4BC1-B9D3-E45B9AC2A2E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +111,8 @@ Global
 		{0D3D6BCF-9FF1-42C5-B844-5F7C1D9A802E} = {B1B34049-6613-4306-8E29-C39594934EF4}
 		{B1B34049-6613-4306-8E29-C39594934EF4} = {3FE24677-59F9-4BC1-9A62-2A053FD7DEF8}
 		{24DE246A-F530-476D-812B-BE1E805E15F8} = {3FE24677-59F9-4BC1-9A62-2A053FD7DEF8}
+		{F5F955E7-FD11-447B-A60A-BE3172378BAA} = {3FE24677-59F9-4BC1-9A62-2A053FD7DEF8}
+		{6AC6FD38-6401-4BC1-B9D3-E45B9AC2A2E3} = {F5F955E7-FD11-447B-A60A-BE3172378BAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39F15119-DF50-4E36-BC27-AC6BC4E96CB1}

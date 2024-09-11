@@ -11,7 +11,6 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Controllers.v1
 
     {
         private readonly IMinioClient _minioClient;
-        private readonly IHostEnvironment _hostEnv;
         private readonly IConfiguration _config;
         private readonly string _bucketName;
 
@@ -66,9 +65,9 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Controllers.v1
 
                 return Ok(new { objectName, fileUrl });
             }
-            catch (MinioException e)
+            catch (MinioException)
             {
-                return StatusCode(500, $"Internal server error: {e.Message}");
+                return StatusCode(500, "Internal server error");
             }
         }
 
@@ -119,7 +118,7 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Controllers.v1
 
                     files.Add(response);
                 }
-                catch (MinioException e)
+                catch (MinioException)
                 {
                     // If an error occurs, continue to next file
                     continue;

@@ -70,12 +70,12 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Controllers
 
             return Ok(await _accountService.ResetPassword(model));
         }
-        private string GenerateIPAddress()
+        private string? GenerateIPAddress()
         {
             if (Request.Headers.ContainsKey("X-Forwarded-For"))
                 return Request.Headers["X-Forwarded-For"];
             else
-                return HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
+                return HttpContext.Connection.RemoteIpAddress?.MapToIPv4().ToString();
         }
     }
 }

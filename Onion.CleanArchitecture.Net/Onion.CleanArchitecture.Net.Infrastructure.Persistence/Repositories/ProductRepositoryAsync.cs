@@ -3,7 +3,7 @@ using Onion.CleanArchitecture.Net.Application.Features.Products.Queries.GetAllPr
 using Onion.CleanArchitecture.Net.Application.Interfaces;
 using Onion.CleanArchitecture.Net.Application.Interfaces.Repositories;
 using Onion.CleanArchitecture.Net.Application.Wrappers;
-using Onion.CleanArchitecture.Net.Domain.Entities;
+using Onion.CleanArchitecture.Net.Domain.Entities.Catalog;
 using Onion.CleanArchitecture.Net.Infrastructure.Persistence.Contexts;
 using Onion.CleanArchitecture.Net.Infrastructure.Persistence.Repository;
 using Onion.CleanArchitecture.Net.Infrastructure.Shared.Extensions;

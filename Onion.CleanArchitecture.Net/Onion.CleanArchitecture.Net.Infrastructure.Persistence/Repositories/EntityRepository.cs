@@ -50,9 +50,9 @@ namespace Onion.CleanArchitecture.Net.Infrastructure.Persistence.Repositories
         /// </summary>
         /// <typeparam name="TEntity">Entity type</typeparam>
         /// <returns>Queryable source</returns>
-        public IQueryable<TEntity> GetTable<TEntity>() where TEntity : AuditableBaseEntity
+        public IQueryable<T> GetTable<T>() where T : AuditableBaseEntity
         {
-            return _dbContext.Set<TEntity>().AsQueryable();
+            return _dbContext.Set<T>().AsQueryable();
         }
 
         /// <summary>

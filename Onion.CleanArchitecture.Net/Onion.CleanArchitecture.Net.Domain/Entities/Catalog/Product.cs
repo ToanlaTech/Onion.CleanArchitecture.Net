@@ -1,6 +1,6 @@
 ﻿using Onion.CleanArchitecture.Net.Domain.Common;
 
-namespace Onion.CleanArchitecture.Net.Domain.Entities
+namespace Onion.CleanArchitecture.Net.Domain.Entities.Catalog
 {
     public class Product : AuditableBaseEntity
     {

@@ -111,10 +111,10 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Extensions
 
         public static void AddRabbitMqExtension(this IServiceCollection services, IConfiguration configuration, bool isProduction)
         {
-            string rabbitHost = configuration[RabbitMqAppConst.Host];
-            string rabbitvHost = configuration[RabbitMqAppConst.Vhost];
-            string rabbitUser = configuration[RabbitMqAppConst.User];
-            string rabbitPass = configuration[RabbitMqAppConst.Pass];
+            string rabbitHost = configuration?[RabbitMqAppConst.Host] ?? string.Empty;
+            string rabbitvHost = configuration?[RabbitMqAppConst.Vhost] ?? string.Empty;
+            string rabbitUser = configuration?[RabbitMqAppConst.User] ?? string.Empty;
+            string rabbitPass = configuration?[RabbitMqAppConst.Pass] ?? string.Empty;
             services.Configure<MassTransitHostOptions>(options =>
             {
                 options.WaitUntilStarted = true;
@@ -123,16 +123,11 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Extensions
             });
             if (isProduction)
             {
-                rabbitHost = Environment.GetEnvironmentVariable(RabbitMqEnvConst.Host);
-                rabbitvHost = Environment.GetEnvironmentVariable(RabbitMqEnvConst.Vhost);
-                rabbitUser = Environment.GetEnvironmentVariable(RabbitMqEnvConst.User);
-                rabbitPass = Environment.GetEnvironmentVariable(RabbitMqEnvConst.Pass);
+                rabbitHost = Environment.GetEnvironmentVariable(RabbitMqEnvConst.Host) ?? string.Empty;
+                rabbitvHost = Environment.GetEnvironmentVariable(RabbitMqEnvConst.Vhost) ?? string.Empty;
+                rabbitUser = Environment.GetEnvironmentVariable(RabbitMqEnvConst.User) ?? string.Empty;
+                rabbitPass = Environment.GetEnvironmentVariable(RabbitMqEnvConst.Pass) ?? string.Empty;
             }
-            Console.WriteLine("rabbitHost: " + rabbitHost);
-            Console.WriteLine("rabbitvHost: " + rabbitvHost);
-            Console.WriteLine("rabbitUser: " + rabbitUser);
-            Console.WriteLine("rabbitPass: " + rabbitPass);
-            Console.WriteLine($"_logs ASPNETCORE_URLS {Environment.GetEnvironmentVariable("ASPNETCORE_URLS")}");
             services.AddMassTransit(x =>
             {
 

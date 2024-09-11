@@ -2,7 +2,7 @@
 using Onion.CleanArchitecture.Net.Application.Exceptions;
 using Onion.CleanArchitecture.Net.Application.Interfaces.Repositories;
 using Onion.CleanArchitecture.Net.Application.Wrappers;
-using Onion.CleanArchitecture.Net.Domain.Entities;
+using Onion.CleanArchitecture.Net.Domain.Entities.Catalog;
 using System.Threading;
 using System.Threading.Tasks;
 
