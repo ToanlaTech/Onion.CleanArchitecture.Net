@@ -2,9 +2,11 @@
 using Microsoft.Extensions.DependencyInjection;
 using Onion.CleanArchitecture.Net.Application.Interfaces;
 using Onion.CleanArchitecture.Net.Application.Interfaces.Repositories;
+using Onion.CleanArchitecture.Net.Application.Interfaces.Services.Catalog;
 using Onion.CleanArchitecture.Net.Infrastructure.Persistence.Contexts;
 using Onion.CleanArchitecture.Net.Infrastructure.Persistence.Repositories;
 using Onion.CleanArchitecture.Net.Infrastructure.Persistence.Repository;
+using Onion.CleanArchitecture.Net.Infrastructure.Persistence.Services.Catalog;
 using Onion.CleanArchitecture.Net.Infrastructure.Shared.Environments;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using System;
@@ -89,6 +91,10 @@ namespace Onion.CleanArchitecture.Net.Infrastructure.Persistence
             services.AddScoped(typeof(IRepository<>), typeof(EntityRepository<>));
             services.AddTransient<IProductRepositoryAsync, ProductRepositoryAsync>();
             // services.AddTransient<IEmailRepositoryAsync, EmailRepositoryAsync>();
+            #endregion
+
+            #region Services
+            services.AddScoped<IProductService, ProductService>();
             #endregion
         }
     }
