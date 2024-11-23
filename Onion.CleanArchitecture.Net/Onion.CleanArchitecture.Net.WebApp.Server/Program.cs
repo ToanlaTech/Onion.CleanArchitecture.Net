@@ -16,9 +16,11 @@ _services.AddEnvironmentVariablesExtension();
 _services.ConfigureServicesExtension();
 _services.AddIdentityLayer();
 _services.AddApplicationLayer();
-_services.AddNpgSqlIdentityInfrastructure(typeof(Program).Assembly.FullName);
+// _services.AddNpgSqlIdentityInfrastructure(typeof(Program).Assembly.FullName);
+_services.AddMySqlIdentityInfrastructure(typeof(Program).Assembly.FullName);
 _services.AddIdentityRepositories(_config);
-_services.AddNpgSqlPersistenceInfrastructure(typeof(Program).Assembly.FullName);
+// _services.AddNpgSqlPersistenceInfrastructure(typeof(Program).Assembly.FullName);
+_services.AddMySqlPersistenceInfrastructure(typeof(Program).Assembly.FullName);
 _services.AddPersistenceRepositories();
 _services.AddSharedInfrastructure(_config);
 if (_env.IsDevelopment())

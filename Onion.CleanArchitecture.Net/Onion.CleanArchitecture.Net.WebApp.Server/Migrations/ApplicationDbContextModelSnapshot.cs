@@ -2,8 +2,8 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Onion.CleanArchitecture.Net.Infrastructure.Persistence.Contexts;
 
 #nullable disable
@@ -19,59 +19,59 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Migrations
             modelBuilder
                 .HasDefaultSchema("public")
                 .HasAnnotation("ProductVersion", "8.0.8")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
             modelBuilder.Entity("Onion.CleanArchitecture.Net.Domain.Entities.Catalog.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("AdditionalShippingCharge")
                         .HasColumnType("decimal(18,6)");
 
                     b.Property<string>("AdminComment")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("AllowAddingOnlyExistingAttributeCombinations")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("AllowBackInStockSubscriptions")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("AllowCustomerReviews")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("AllowedQuantities")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("ApprovedRatingSum")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("ApprovedTotalReviews")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("AutomaticallyAddRequiredProducts")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("AvailableEndDateTimeUtc")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("AvailableForPreOrder")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("AvailableStartDateTimeUtc")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("BackorderMode")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("BackorderModeId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<decimal>("BasepriceAmount")
                         .HasColumnType("decimal(18,6)");
@@ -80,295 +80,295 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Migrations
                         .HasColumnType("decimal(18,6)");
 
                     b.Property<int>("BasepriceBaseUnitId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("BasepriceEnabled")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("BasepriceUnitId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("CallForPrice")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("Created")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedOnUtc")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("CustomerEntersPrice")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("Deleted")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("DeliveryDateId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("DisableBuyButton")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("DisableWishlistButton")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("DisplayAttributeCombinationImagesOnly")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("DisplayOrder")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("DisplayStockAvailability")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("DisplayStockQuantity")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("DownloadActivationType")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("DownloadActivationTypeId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int?>("DownloadExpirationDays")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("DownloadId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("FullDescription")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("GiftCardType")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("GiftCardTypeId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("Gtin")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("HasDiscountsApplied")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("HasSampleDownload")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("HasTierPrices")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("HasUserAgreement")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<decimal>("Height")
                         .HasColumnType("decimal(18,6)");
 
                     b.Property<bool>("IsDownload")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsFreeShipping")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsGiftCard")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsRecurring")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsRental")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsShipEnabled")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsTaxExempt")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("LastModified")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("LastModifiedBy")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<decimal>("Length")
                         .HasColumnType("decimal(18,6)");
 
                     b.Property<bool>("LimitedToStores")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("LowStockActivity")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("LowStockActivityId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("ManageInventoryMethod")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("ManageInventoryMethodId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("ManufacturerPartNumber")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("MarkAsNew")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("MarkAsNewEndDateTimeUtc")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("MarkAsNewStartDateTimeUtc")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("MaxNumberOfDownloads")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<decimal>("MaximumCustomerEnteredPrice")
                         .HasColumnType("decimal(18,6)");
 
                     b.Property<string>("MetaDescription")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("MetaKeywords")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("MetaTitle")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("MinStockQuantity")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<decimal>("MinimumCustomerEnteredPrice")
                         .HasColumnType("decimal(18,6)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("NotApprovedRatingSum")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("NotApprovedTotalReviews")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("NotReturnable")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("NotifyAdminForQuantityBelow")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<decimal>("OldPrice")
                         .HasColumnType("decimal(18,6)");
 
                     b.Property<int>("OrderMaximumQuantity")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("OrderMinimumQuantity")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<decimal?>("OverriddenGiftCardAmount")
                         .HasColumnType("decimal(18,6)");
 
                     b.Property<int>("ParentGroupedProductId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("PreOrderAvailabilityStartDateTimeUtc")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,6)");
 
                     b.Property<int>("ProductAvailabilityRangeId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<decimal>("ProductCost")
                         .HasColumnType("decimal(18,6)");
 
                     b.Property<int>("ProductTemplateId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductType")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductTypeId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("Published")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("RecurringCycleLength")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("RecurringCyclePeriod")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("RecurringCyclePeriodId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("RecurringTotalCycles")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("RentalPriceLength")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("RentalPricePeriod")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("RentalPricePeriodId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("RequireOtherProducts")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("RequiredProductIds")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("SampleDownloadId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("ShipSeparately")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("ShortDescription")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("ShowOnHomepage")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Sku")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("StockQuantity")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("SubjectToAcl")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("TaxCategoryId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("UnlimitedDownloads")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("UpdatedOnUtc")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("UseMultipleWarehouses")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("UserAgreementText")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("VendorId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<bool>("VisibleIndividually")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("WarehouseId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Weight")
                         .HasColumnType("decimal(18,6)");
@@ -384,55 +384,55 @@ namespace Onion.CleanArchitecture.Net.WebApp.Server.Migrations
             modelBuilder.Entity("Onion.CleanArchitecture.Net.Domain.Models.Customer", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("text");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Email")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("boolean");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 

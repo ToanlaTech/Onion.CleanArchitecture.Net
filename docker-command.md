@@ -24,6 +24,8 @@ p, SuperAdmin, roleclaims, delete
 
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=sql@pa22w0rd" -p 1433:1433 -d --name=sqlserver mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
 
+docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=123456 -d cytopia/mysql-5.7
+
 git rm --cached Onion.CleanArchitecture.Net/Onion.CleanArchitecture.Net.WebApp.Client/Onion.CleanArchitecture.Net.WebApp.Client.esproj
 git rm --cached ./Onion.CleanArchitecture.Net/Onion.CleanArchitecture.Net.WebApp.Client/Onion.CleanArchitecture.Net.WebApp.Client.esproj
 

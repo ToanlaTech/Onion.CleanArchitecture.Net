@@ -7,7 +7,22 @@ services:
       - 8080:8080
     environment:
       ASPNETCORE_ENVIRONMENT: Production
-      SQLSERVER_CONNECTION_STRING: Server=sqlserver;Database=Ecommerce;User Id=sa;Password=sql@pa22w0rd; TrustServerCertificate=Yes;
+      MYSQL_CONNECTION_STRING: server=mysql;port=3306;database=ecommerce;uid=root;password=123456
+    networks:
+      - ecommerce
+  mysql:
+    container_name: mysql
+    image: mysql:8.0 # Sử dụng phiên bản MySQL phù hợp
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456 # Mật khẩu root
+      MYSQL_DATABASE: ecommerce  # Tên database khởi tạo
+      MYSQL_USER: root # Người dùng custom
+      MYSQL_PASSWORD: ecommerce_password # Mật khẩu custom
+    ports:
+      - 3306:3306 # Map cổng MySQL
+    volumes:
+      - mysql_data:/var/lib/mysql # Lưu dữ liệu MySQL
     networks:
       - ecommerce
 networks:
